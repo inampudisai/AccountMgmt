@@ -7,9 +7,8 @@
 --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
-<%@ taglib prefix="spring1" uri="http://www.springframework.org/tags"%>
 <% request.setAttribute("context", StringEscapeUtils.escapeHtml4(request.getContextPath()));%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -22,6 +21,7 @@
 <body>
 
 <h1>Account Home Page</h1>
+<a href="<c:url value='j_spring_security_logout'/> ">Logout</a>
 <table id = "customers">
     <form method = "post" action = "/AccountMgmt/usrMgmt/hotelAccount">
         <tr>

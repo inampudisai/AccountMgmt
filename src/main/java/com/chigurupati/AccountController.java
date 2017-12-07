@@ -36,7 +36,7 @@ public class AccountController {
             return modelandview;
         }
 
-        if(userDetails1.username.equalsIgnoreCase("Admin") && userDetails1.password.equals("Password"))
+        if(userDetails1.username.equalsIgnoreCase("Admin") && userDetails1.password.equals("Passw0rd"))
         {
             // ArrayList propertyName = reqparm.get("region");
             //userDetails1.setRegion(propertyName);
