@@ -21,23 +21,23 @@
 <body>
 
 <h1>Account Home Page</h1>
-<a href="<c:url value='j_spring_security_logout'/> ">Logout</a>
+<a href="/WEB-INF/base/UserLogin.jsp">Logout</a>
 <table id = "customers">
     <form method = "post" action = "/AccountMgmt/usrMgmt/hotelAccount">
         <tr>
-            <td><input type = "submit" name = "hotel" value = "hotelAccount"></td>
+            <td><input type = "submit" name = "hotel" value = "hotelAccount">Hotel Account</td>
             <br>
         </tr>
     </form>
     <form method = "post" action = "/AccountMgmt/usrMgmt/sandAccount">
         <tr>
-            <td><input type = "submit" name = "sand" value = "sandAccount"></td>
+            <td><input type = "submit" name = "sand" value = "sandAccount">Sand Account</td>
             <br>
         </tr>
     </form>
     <form method = "post" action = "/AccountMgmt/usrMgmt/earthMoverAccount">
         <tr>
-            <td><input type = "submit" name = "earth" value = "earthMoverAccount"></td>
+            <td><input type = "submit" name = "earth" value = "earthMoverAccount">Earth Mover Account</td>
 
         </tr>
     </form>

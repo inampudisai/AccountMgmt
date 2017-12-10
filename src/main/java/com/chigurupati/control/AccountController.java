@@ -1,5 +1,9 @@
-package com.chigurupati;
+package com.chigurupati.control;
 
+import com.chigurupati.UserDetails;
+import com.chigurupati.model.base.NewRegistration;
+import com.chigurupati.service.NewUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -8,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,11 +23,49 @@ import java.util.HashMap;
 @RequestMapping("/usrMgmt")
 public class AccountController {
 
+    @Autowired
+    NewUserService userService;
+
     @RequestMapping("/userLogin")
     public ModelAndView getLoginPage(@RequestParam(value = "error", required = false) String error,
                                      @RequestParam(value = "logout", required = false) String logout)
     {
         ModelAndView modelandview = new ModelAndView("base/UserLogin");
+        return modelandview;
+    }
+
+    @RequestMapping("/registrationPage")
+    public ModelAndView getRegisterPage()
+    {
+        ModelAndView modelandview;
+
+            modelandview = new ModelAndView("base/NewRegistrationUser");
+            return modelandview;
+
+
+    }
+
+    @RequestMapping("/addUser")
+    public ModelAndView addUser(@Valid @ModelAttribute("registerUser") NewRegistration registerUser, BindingResult result)
+    {
+        ModelAndView modelandview;
+        if(result.hasErrors()){
+
+            modelandview = new ModelAndView("base/NewRegistrationUser" );
+            modelandview.addObject("errorMessage", "Please enter correct details to register your details");
+            return modelandview;
+        }
+
+        if (userService.saveOrUpdate(registerUser)) {
+
+            modelandview = new ModelAndView("base/UserLogin");
+            return modelandview;
+           /* map.put("status", "200");
+            map.put("message", "Your record have been saved successfully");*/
+        }
+
+
+        modelandview = new ModelAndView("base/NewRegistrationUser");
         return modelandview;
     }
 

@@ -32,9 +32,11 @@
         <property name="password" value="${jdbc.password}"></property>
     </bean>
 
-    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
-        <property name="packagesToScan" value="com.chigurupati.dao"></property>
+        <property name="packagesToScan" value="com.chigurupati"></property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">${hibernate.hibernateDialect}</prop>
@@ -46,9 +48,23 @@
 
 
 
+
+        <bean id="register" class="com.chigurupati.dao.RegistrationDaoImpl">
+            <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
+<!--
+    <bean id="userService" class="com.chigurupati.service.NewUserService">
+        <property name="newUser" ref="register"/>
+    </bean>
+    <bean id="accountController" class="com.chigurupati.control.AccountController">
+        <property name="register" ref="userService"/>
+    </bean>
+-->
+
+
     <tx:annotation-driven/>
 
-    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="dataSource" ref="dataSource"></property>
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>

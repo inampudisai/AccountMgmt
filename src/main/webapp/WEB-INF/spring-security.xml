@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
-    <http auto-config="true" use-expressions="true">
+<!--    <http auto-config="true" use-expressions="true">
         <intercept-url pattern="/usrMgmt/**" access="permitAll" />
         <intercept-url pattern="/hotelMgmt/**" access="hasRole('ROLE_ADMIN')" />
         <intercept-url pattern="/sandMgmt/**" access="hasRole('ROLE_ADMIN')" />
@@ -15,7 +15,7 @@
         <form-login
                 login-page="/usrMgmt/userLogin"
                 always-use-default-target="false" />
-        <!-- enable csrf protection -->
+        &lt;!&ndash; enable csrf protection &ndash;&gt;
         <csrf/>
         <logout />
     </http>
@@ -29,6 +29,6 @@
                 <user name="Admin" password="$2a$12$gBKdQYMwZZfGT6Tm2cJG0.VUBO7M6XPRu9Kxn.MhKEmu9v3t1GysO" authorities="ROLE_ADMIN" />
             </user-service>
         </authentication-provider>
-    </authentication-manager>
+    </authentication-manager>-->
 
 </beans:beans>
