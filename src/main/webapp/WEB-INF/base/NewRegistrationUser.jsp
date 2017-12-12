@@ -21,28 +21,61 @@
 </head>
 <body>
 
-<form  method = "post" action = "/AccountMgmt/usrMgmt/addUser">
+<form:form action="/AccountMgmt/usrMgmt/addUser" modelAttribute="registerUser" method="post">
 <div class="container">
-    <label><b>First Name</b></label>
-    <input type="text" placeholder="Enter First Name" name="firstName" required>
-    <br>
-    <label><b>Last Name</b></label>
-    <input type="text" placeholder="Enter Last Name" name="lastName" required>
-    <br>
-    <label><b>Email ID</b></label>
-    <input type="text" placeholder="Enter email ID" name="emailID" required>
-    <br>
-    <label><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-    <br>
-    <label><b>Phone No</b></label>
-    <input type="text" placeholder="Enter Phone No" name="phoneNo" required>
-    <br>
-    <button type="submit">Add User</button>
+    <table>
+        <tr>
+            <td>First Name:</td>
+            <td><form:input path="firstName" />
+            </td>
+            <td style="color: red; font-style: italic;"><form:errors
+                    path="firstName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <td><form:input path="lastName" />
+            </td>
+            <td style="color: red; font-style: italic;"><form:errors
+                    path="lastName" />
+            </td>
+        </tr>
+        <tr>
+            <td>Email ID:</td>
+            <td><form:input path="emailID" />
+            </td>
+            <td style="color: red; font-style: italic;"><form:errors
+                    path="emailID" />
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><form:password path="password" />
+            </td>
+            <td style="color: red; font-style: italic;"><form:errors
+                    path="password" />
+            </td>
+        </tr>
+        <tr>
+            <td>Mobile No:</td>
+            <td><form:input path="phoneNo" />
+            </td>
+            <td style="color: red; font-style: italic;"><form:errors
+                    path="phoneNo" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Register" />
+            </td>
+        </tr>
+    </table>
+
+
 
 </div>
 
-</form>
+</form:form>
 
 
 

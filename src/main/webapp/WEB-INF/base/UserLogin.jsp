@@ -9,41 +9,48 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link href="${context}/js/clsstmt.css" rel="stylesheet" type="text/css" />
+<link href="${context}/js/foundation.css" rel="stylesheet" type="text/css" />
 <title>Login Page</title>
 </head>
 <body>
-  	
-    <h1>User Login Page</h1>
-    <form method = "post" action="/AccountMgmt/usrMgmt/registrationPage">
+  	<style src="${context}/js/external/jquery/foundation.js"></style>
+    <style src="${context}/js/external/jquery/jquery.js"></style>
+<%--    <form method = "post" action="/AccountMgmt/usrMgmt/registrationPage">
         <div class="container2">
             <button type="submit">New Registration</button>
         </div>
-    </form>
+    </form>--%>
 
-	<form  method = "post" action = "/AccountMgmt/usrMgmt/homePage">
+    <form class="register-form" method = "post" action="/AccountMgmt/usrMgmt/registrationPage">
+        <input type="text" placeholder="firstname"/>
+        <input type="text" placeholder="Lastname"/>
+        <input type="text" placeholder="email Adsress"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="PhoneNo"/>
+        <input type = "submit">Create New user</input>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+    </form>
+	<form method = "post" action = "/AccountMgmt/usrMgmt/homePage">
 
         <c:if test="${not empty errorMessage}">
             ${errorMessage}
         </c:if>
-        <div class="imgcontainer">
+       <%-- <div class="imgcontainer">
             <img src="${context}/img_avatar2.png" alt="Avatar" class="avatar">
-        </div>
+        </div>--%>
 
-        <div class="container">
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required>
-            <br>
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="password" required>
-            <br>
-            <button type="submit">Login</button>
-            <input type="checkbox" checked="checked"> Remember me
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
+        <div class = "sign-in-form" style="width:50%;text-align:left">
+            <h4 class="sign-in-form">Log in with you Username account</h4>
+            <label>Email
+                <input type="text" placeholder="User Name" name ="username">
+            </label>
+            <label>Password
+                <input type="password" placeholder="Password" name="password">
+            </label>
+            <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+            <p><input type="submit" class="button expanded" value="Log in"></input></p>
+            <p class="text-center"><a href="#">Forgot your password?</a></p>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
         </div>
 
 

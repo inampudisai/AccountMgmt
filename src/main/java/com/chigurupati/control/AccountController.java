@@ -1,8 +1,9 @@
 package com.chigurupati.control;
 
-import com.chigurupati.UserDetails;
+import com.chigurupati.model.base.UserDetails;
 import com.chigurupati.model.base.NewRegistration;
 import com.chigurupati.service.NewUserService;
+import com.chigurupati.validators.NewRegisterValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -35,10 +36,14 @@ public class AccountController {
     }
 
     @RequestMapping("/registrationPage")
-    public ModelAndView getRegisterPage()
+    public ModelAndView getRegisterPage(@ModelAttribute("registerUser") NewRegistration registerUser, BindingResult result)
     {
         ModelAndView modelandview;
-
+        if(result.hasErrors())
+        {
+            modelandview = new ModelAndView("base/UserLogin");
+            return modelandview;
+        }
             modelandview = new ModelAndView("base/NewRegistrationUser");
             return modelandview;
 
@@ -46,9 +51,13 @@ public class AccountController {
     }
 
     @RequestMapping("/addUser")
-    public ModelAndView addUser(@Valid @ModelAttribute("registerUser") NewRegistration registerUser, BindingResult result)
+    public ModelAndView addUser(@ModelAttribute("registerUser") NewRegistration registerUser, BindingResult result)
     {
         ModelAndView modelandview;
+        //NewRegistration registerUser1 = new NewRegistration();
+        /*NewRegisterValidator formValidation = new NewRegisterValidator();
+        formValidation.validate(registerUser, result);*/
+
         if(result.hasErrors()){
 
             modelandview = new ModelAndView("base/NewRegistrationUser" );

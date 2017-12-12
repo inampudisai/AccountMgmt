@@ -1,4 +1,4 @@
-package com.chigurupati;
+package com.chigurupati.model.base;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,6 @@ public class UserDetails{
 
     public String username;
     public String password;
-    public ArrayList region;
-
 
 
     public String getUsername() {

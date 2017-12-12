@@ -18,7 +18,6 @@ public class NewRegistration {
     private String LastName;
 
     @Id
-    @NotNull
     @Column(name = "emailID")
     private String emailID;
 
@@ -77,10 +76,13 @@ public class NewRegistration {
 
     }
 
-    public NewRegistration(String FirstName,String LastName,String emailID,int PhoneNo){
-        setEmailID(emailID);
+    public NewRegistration(String FirstName,String LastName,String emailID, String password,int PhoneNo){
+
         setFirstName(FirstName);
         setLastName(LastName);
+        setEmailID(emailID);
+        setPassword(password);
         setPhoneNo(PhoneNo);
+
     }
 }

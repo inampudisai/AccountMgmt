@@ -89,6 +89,14 @@
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.6" />
           <element id="library" level="project" name="Maven: commons-dbcp:commons-dbcp:1.4" />
           <element id="library" level="project" name="Maven: commons-pool:commons-pool:1.6" />
+          <element id="library" level="project" name="Maven: org.webjars:foundation:6.4.2" />
+          <element id="library" level="project" name="Maven: org.webjars:modernizr:2.8.3" />
+          <element id="library" level="project" name="Maven: org.webjars:fastclick:1.0.3" />
+          <element id="library" level="project" name="Maven: org.webjars:jQuery-Autocomplete:1.2.7" />
+          <element id="library" level="project" name="Maven: org.webjars:jquery-cookie:1.4.0" />
+          <element id="library" level="project" name="Maven: org.webjars:jquery:2.1.1" />
+          <element id="library" level="project" name="Maven: org.webjars:Placeholders.js:3.0.2" />
+          <element id="library" level="project" name="Maven: org.webjars:normalize.css:3.0.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
