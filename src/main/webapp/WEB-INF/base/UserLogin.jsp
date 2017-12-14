@@ -10,51 +10,54 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link href="${context}/js/foundation.css" rel="stylesheet" type="text/css" />
+    <link href="${context}/js/app.css" rel="stylesheet" type="text/css" />
 <title>Login Page</title>
 </head>
 <body>
-  	<style src="${context}/js/external/jquery/foundation.js"></style>
-    <style src="${context}/js/external/jquery/jquery.js"></style>
+
 <%--    <form method = "post" action="/AccountMgmt/usrMgmt/registrationPage">
         <div class="container2">
             <button type="submit">New Registration</button>
         </div>
     </form>--%>
+    <h4 class="sign-in-form">Welcome to SUKUMAR Infra</h4>
+    <div class="login-page">
+        <div class="form">
+            <form class="register-form" method = "post" action="/AccountMgmt/usrMgmt/registrationPage" style="display: block">
 
-    <form class="register-form" method = "post" action="/AccountMgmt/usrMgmt/registrationPage">
-        <input type="text" placeholder="firstname"/>
-        <input type="text" placeholder="Lastname"/>
-        <input type="text" placeholder="email Adsress"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="PhoneNo"/>
-        <input type = "submit">Create New user</input>
-        <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-	<form method = "post" action = "/AccountMgmt/usrMgmt/homePage">
+                    <input type="text" placeholder="firstname"/>
+                    <input type="text" placeholder="Lastname"/>
+                    <input type="text" placeholder="email Adsress"/>
+                    <input type="password" placeholder="password"/>
+                    <input type="text" placeholder="PhoneNo"/>
+                    <input type = "submit">Create New user</input>
+                    <p class="message">Already registered? <a href="#" onclick="toggle_visibility('login-form')">Sign In</a></p>
 
-        <c:if test="${not empty errorMessage}">
-            ${errorMessage}
-        </c:if>
-       <%-- <div class="imgcontainer">
-            <img src="${context}/img_avatar2.png" alt="Avatar" class="avatar">
-        </div>--%>
+            </form>
+            <form class="login-form" method = "post" action = "/AccountMgmt/usrMgmt/homePage" style="display: block">
 
-        <div class = "sign-in-form" style="width:50%;text-align:left">
-            <h4 class="sign-in-form">Log in with you Username account</h4>
-            <label>Email
-                <input type="text" placeholder="User Name" name ="username">
-            </label>
-            <label>Password
-                <input type="password" placeholder="Password" name="password">
-            </label>
-            <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
-            <p><input type="submit" class="button expanded" value="Log in"></input></p>
-            <p class="text-center"><a href="#">Forgot your password?</a></p>
-            <p class="message">Already registered? <a href="#">Sign In</a></p>
+<%--                <c:if test="${not empty errorMessage}">
+                    ${errorMessage}
+                </c:if>--%>
+               <%-- <div class="imgcontainer">
+                    <img src="${context}/img_avatar2.png" alt="Avatar" class="avatar">
+                </div>--%>
+                    <label>Email
+                        <input type="text" placeholder="User Name" name ="username" />
+                    </label>
+                    <label>Password
+                        <input type="password" placeholder="Password" name="password" />
+                    </label>
+                    <input id="show-password" type="checkbox" /><label for="show-password">Show password</label>
+                    <p><input type="submit" class="button expanded" value="Log in"></input></p>
+                    <p class="text-center"><a href="#">Forgot your password?</a></p>
+                <p class="message">Not registered? <a href="#" onclick="toggle_visibility('register-form')">Create an account</a></p>
+
+            </form>
         </div>
-
-
-	</form>
-
+    </div>
+    <style src="${context}/js/external/jquery/foundation.js"></style>
+    <style src="${context}/js/external/jquery/jquery.js"></style>
+    <style src="${context}/js/external/jquery/app.js"></style>
 </body>
 </html>
