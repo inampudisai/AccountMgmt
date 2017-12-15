@@ -1,4 +1,4 @@
-package com.chigurupati.hotel;
+package com.chigurupati.control;
 
 
 import org.springframework.stereotype.Controller;

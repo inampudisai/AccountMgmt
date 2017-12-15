@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link href="js/foundation.css" rel="stylesheet" type="text/css" />
+    <link href="js/app.css" rel="stylesheet" type="text/css" />
+    <style src="js/external/jquery/foundation.js"></style>
+    <style src="js/external/jquery/jquery.js"></style>
+    <style src="js/external/jquery/app.js"></style>
+    <style src="js/external/jquery/jquery-1.11.0.min.js"></style>
+    <title>SUKUMAR infra login Page</title>
+</head>
+<div>
+
+<header>
+    <div >
+        <div class="navigateTop">
+            <ul class="navigate">
+
+                <li id="menuLogin">Login Page</li>
+                <li id="menuRegistration">New Registration Page</li>
+                <li id="menuChat">Contact Details</li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- Clear any floats before the body is drawn -->
+    <div class="clear"></div>
+</header>
+
+<div class="col1left col1right contentPage">
+
+    <div id ="pageLogin">
+        <div class="login-page form">
+            <form class="login-form" method = "post" action = "/AccountMgmt/usrMgmt/homePage">
+
+                <label>Email
+                    <input type="text" placeholder="User Name" name ="username" />
+                </label>
+                <label>Password
+                    <input type="password" placeholder="Password" name="password" />
+                </label>
+                <input id="show-password" type="checkbox" /><label for="show-password">Show password</label>
+                <p><input type="submit" class="button expanded" value="Log in"></input></p>
+                <p class="text-center"><a href="#">Forgot your password?</a></p>
+
+
+            </form>
+
+        </div>
+    </div>
+
+    <div id ="pageRegister">
+        <div class="login-page form">
+            <form class="register-form" method = "post" action="/AccountMgmt/usrMgmt/registrationPage">
+                <input type="text" placeholder="firstname"/>
+                <input type="text" placeholder="Lastname"/>
+                <input type="text" placeholder="email Adsress"/>
+                <input type="password" placeholder="password"/>
+                <input type="text" placeholder="PhoneNo"/>
+                <input type = "submit">Create New user</input>
+
+            </form>
+        </div>
+    </div>
+
+    <!-- Clear any floats before the footer is drawn -->
+    <div class="clear"></div>
+
+</div>
+
+
+
+<footer class="col1left">
+    <!-- Clear any floats before the footer is drawn -->
+    <div class="clear"></div>
+    <div class="footer"> SUKUMAR Company, Inc.</div>
+    <!-- footer goes here -->
+</footer>
+</body>
+</html>

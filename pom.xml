@@ -41,6 +41,11 @@
       <artifactId>spring-jdbc</artifactId>
       <version>${spring.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
     <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
     <dependency>
       <groupId>org.springframework.security</groupId>
@@ -59,7 +64,13 @@
           <artifactId>spring-security-config</artifactId>
           <version>${spring.security.version}</version>
       </dependency>
-      <dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-taglibs</artifactId>
+      <version>${spring.security.version}</version>
+    </dependency>
+    <dependency>
           <groupId>jstl</groupId>
           <artifactId>jstl</artifactId>
           <version>${jstl.version}</version>
@@ -159,9 +170,87 @@
       <artifactId>testng</artifactId>
       <version>6.9.10</version>
     </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.1.10.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>5.4.1.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator-cdi</artifactId>
+      <version>5.4.1.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.el</artifactId>
+      <version>3.0.1-b08</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.6</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-pool</groupId>
+      <artifactId>commons-pool</artifactId>
+      <version>1.6</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.webjars/foundation -->
+    <dependency>
+      <groupId>org.webjars</groupId>
+      <artifactId>foundation</artifactId>
+      <version>6.4.2</version>
+    </dependency>
+
 
   </dependencies>
   <build>
     <finalName>AccountMgmt</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
+  <profiles>
+  <profile>
+    <!-- When built in OpenShift the 'openshift' profile will be used when
+        invoking mvn. -->
+    <!-- Use this profile for any OpenShift specific customization your app
+        will need. -->
+    <!-- By default that is to put the resulting archive into the 'webapps'
+        folder. -->
+    <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
+    <id>openshift</id>
+    <build>
+      <finalName>{APP_NAME}</finalName>
+      <plugins>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.1.1</version>
+          <configuration>
+            <outputDirectory>webapps</outputDirectory>
+            <warName>ROOT</warName>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+  </profiles>
 </project>

@@ -3,8 +3,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+       xmlns:beans="http://www.springframework.org/schema/context"
+       xmlns:bean="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-4.2.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 
   
@@ -16,7 +20,54 @@
 	
 	<mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
 
+    <bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="/WEB-INF/database.properties" />
+    </bean>
 
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="packagesToScan" value="com.chigurupati"></property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.hibernateDialect}</prop>
+                <prop key="hibernate.show_sql">${hibernate.showSql}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+
+        <bean id="register" class="com.chigurupati.dao.RegistrationDaoImpl">
+            <property name="sessionFactory" ref="sessionFactory"/>
+        </bean>
+<!--
+    <bean id="userService" class="com.chigurupati.service.NewUserService">
+        <property name="newUser" ref="register"/>
+    </bean>
+    <bean id="accountController" class="com.chigurupati.control.AccountController">
+        <property name="register" ref="userService"/>
+    </bean>
+-->
+
+
+    <tx:annotation-driven/>
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 <!-- 	<mvc:interceptors>
 	<bean class = "com.sample.spring.hellocontroller.DayOfWeekBasedAccessInterceptor" />
 	</mvc:interceptors>-->
@@ -58,7 +109,12 @@
       </bean>
 
 
-
+    <mvc:interceptors>
+        <bean id="webContentInterceptor"
+                    class="org.springframework.web.servlet.mvc.WebContentInterceptor">
+            <property name="cacheSeconds" value="0" />
+        </bean>
+    </mvc:interceptors>
 
 <!--    <bean id="msgSrc" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
