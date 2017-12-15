@@ -23,6 +23,7 @@
 <h1>Account Home Page</h1>
 <a href="/WEB-INF/base/UserLogin.jsp">Logout</a>
 <table id = "customers">
+    <div class="login-page form">
     <form method = "post" action = "/AccountMgmt/usrMgmt/hotelAccount">
         <tr>
             <td><input type = "submit" name = "hotel" value = "hotelAccount">Hotel Account</td>
@@ -41,6 +42,7 @@
 
         </tr>
     </form>
+    </div>
 </table>
 
 </body>

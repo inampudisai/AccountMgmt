@@ -1,5 +1,229 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@CHARSET "UTF-8";
 
+/* reset browser styles */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1.2;
+}
+ol {
+    padding-left: 1.4em;
+    list-style: decimal;
+}
+ul {
+    padding-left: 1.4em;
+    list-style: square;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* end reset browser styles */
+
+/* Trick to clear floats */
+.clear:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+.clear {
+    zoom: 1;
+}
+
+/* Base page styles */
+* {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+HTML {
+    min-width: 315px;
+}
+body {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+    /*background-color: rgb(0, 147, 209);
+    background-image: url(../img/alamere_bkgd.png);*/
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+/* Navigation */
+.navigateLogo{
+    margin-top: 5px;
+}
+
+.navigateTitle{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+
+}
+
+.navigate{
+    float: right;
+    text-align: center;
+    background-color: rgb(0,147,209);
+    padding-left: 0px;
+}
+
+.navigate li{
+    float: left;
+    border-left: 1px solid white;
+    list-style: none;
+    vertical-align: middle;
+    height: 79px;
+    padding: 29px 8px 0px 8px;
+    color:white;
+}
+.navigate li:HOVER {
+    background-color: rgb(0,92,132);
+    cursor: pointer;
+}
+.navigateTop{
+    background-color: rgb(0, 147, 209);
+    background: -webkit-linear-gradient(left, rgb(0, 92, 132), rgb(0, 147, 209), rgb(0, 147, 209)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgb(0, 92, 132), rgb(0, 147, 209), rgb(0, 147, 209)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgb(0, 92, 132), rgb(0, 147, 209), rgb(0, 147, 209)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgb(0, 92, 132), rgb(0, 147, 209), rgb(0, 147, 209)); /* Standard syntax */
+
+}
+
+
+/* General Document Class */
+.footer{
+    margin-top: 40px;
+}
+.col1left{
+    margin-left: 40px;
+}
+.col1right{
+    margin-right: 40px;
+}
+.title{
+    margin-top: 2em;
+}
+.contentPage{
+    background-color: white;
+}
+
+/* Page Specific */
+#pageRegister{
+    display:none;
+}
+#pageLogin{
+    display: inherit;
+}
+
+.columnLeft{
+    float: left;
+    width: 48%;
+}
+.columnRight{
+    float:right;
+    width: 48%
+}
+.tables{
+    border: 1px solid grey;
+    width:100%
+}
+/* Tablet size overrides */
+@media (min-width:481px) and (max-width:768px) {
+    .columnLeft{
+        float: inherit;
+        width: inherit;
+    }
+    .columnRight{
+        float:inherit;
+        width: inherit;
+    }
+    .navigateLogo{
+
+        display: none;
+    }
+    .navigateLogoThin{
+        margin-right:auto;
+        margin-left:auto;
+        display: inherit;
+        display: block;
+    }
+    .naigateTop{
+        /*	height: 79px; */
+    }
+
+    .navigate{
+        float: inherit;
+    }
+    .navigate li{
+        float: inherit;
+        border-left: none;
+        border-top: 1px solid white;
+        height: 40px;
+        padding: 10px 0px 10px 0px;
+
+    }
+    .col1left{
+        margin-left: 20px;
+    }
+    .col1right{
+        margin-right: 20px;
+    }
+}
+
+/* Phone size overrides */
+@media (max-width:480px) {
+    .columnLeft{
+        float: inherit;
+        width: inherit;
+    }
+    .columnRight{
+        float:inherit;
+        width: inherit;
+    }
+    .navigateLogo{
+        display: none;
+    }
+    .navigateLogoThin{
+        margin-right:auto;
+        margin-left:auto;
+        display: inherit;
+        display: block;
+    }
+    .naigateTop{
+        /*	height: 79px; */
+    }
+
+    .navigate{
+        float: inherit;
+    }
+    .navigate li{
+        float: inherit;
+        border-left: none;
+        border-top: 1px solid white;
+        height: 40px;
+        padding: 10px 0px 10px 0px;
+
+    }
+    .tables{
+        font-size: 90%
+    }
+    .col1left{
+        margin-left: 5px;
+    }
+    .col1right{
+        margin-right: 5px;
+    }
+}
 .login-page {
     width: 360px;
     padding: 8% 0 0;
@@ -12,7 +236,7 @@
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
-    text-align: center;
+    text-align: left;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 .form input {
@@ -34,10 +258,10 @@
     width: 100%;
     border: 0;
     padding: 15px;
-    color: #FFFFFF;
+    color: #43A047;
     font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
+/*    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;*/
     cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
@@ -52,9 +276,7 @@
     color: #4CAF50;
     text-decoration: none;
 }
-.form .register-form {
-    display: none;
-}
+
 .container {
     position: relative;
     z-index: 1;
@@ -89,11 +311,11 @@
     color: #EF3B3A;
 }
 body {
-    background: #76b852; /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+    background: #fefffc; /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(right, #76b852, #8DC26F);
     background: -moz-linear-gradient(right, #76b852, #8DC26F);
     background: -o-linear-gradient(right, #76b852, #8DC26F);
-    background: linear-gradient(to left, #76b852, #8DC26F);
+    background: linear-gradient(to left, #76b852, #8DC26F);*/
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
